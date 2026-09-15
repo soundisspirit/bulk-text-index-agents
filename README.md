@@ -4,7 +4,32 @@ A multi-agent pattern to handle massive text collections (multi-day transcripts,
 
 **Use cases:** Q&A agents, backlog creation, timeline reconstruction, report generation.
 
-
+```text
+ ┌──────────────────────────────────┐
+ │         Raw text files           │
+ └──────────────┬────────────┬──────┘
+                │            │
+                │            │ Pass raw text files
+                ▼            │
+ ┌────────────────────────┐  │
+ │ Agent 1 Indexer        │  │
+ │ (Run for each file)    │  │
+ └──────────────┬─────────┘  │
+                │            │
+                │ Pass index │
+                │ files      │
+                ▼            │
+ ┌────────────────────────┐  │
+ │ Agent 2 Consolidator   │  │
+ └──────────────┬─────────┘  │
+                │            │
+                │ Pass master│
+                │ index file │
+                ▼            ▼
+ ┌──────────────────────────────────┐
+ │ Agent 3 (Your use case)          │
+ └──────────────────────────────────┘
+```
 
 ## How to Use These Prompts
 
