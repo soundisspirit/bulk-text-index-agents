@@ -19,3 +19,32 @@ flowchart TD
     A2 -->|Pass Master index| A3["Agent 3<br/>Your use case (e.g. Q&A)"]
     T -->|Pass raw text files| A3
 ```
+
+## Unicode Diagram
+
+```text
+ ┌──────────────────────────────────┐
+ │         Raw text files           │
+ └──────────────┬────────────┬──────┘
+                │            │
+                │            │ Pass raw text files
+                ▼            │
+ ┌────────────────────────┐  │
+ │ Agent 1 Indexer        │  │
+ │ (Run for each file)    │  │
+ └──────────────┬─────────┘  │
+                │            │
+                │ Pass index │
+                │ files      │
+                ▼            │
+ ┌────────────────────────┐  │
+ │ Agent 2 Consolidator   │  │
+ └──────────────┬─────────┘  │
+                │            │
+                │ Pass master│
+                │ index file │
+                ▼            ▼
+ ┌──────────────────────────────────┐
+ │ Agent 3 (Your use case)          │
+ └──────────────────────────────────┘
+```
