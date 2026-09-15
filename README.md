@@ -31,7 +31,8 @@ A multi-agent pattern to handle massive text collections (multi-day transcripts,
  └──────────────────────────────────┘
 ```
 
-> **Tip:** Clone or download this repository (including `README.md` and the files in [`prompts/`](prompts/)) to plug the prompts directly into your AI assistant, Copilot, or agent workspace.
+> [!TIP]
+> **Getting Started:** Clone the repo or download this `README.md` and the prompt files from the [`prompts/`](prompts/) directory to plug them directly into your agent workspace.
 
 ## How to Use These Prompts
 
