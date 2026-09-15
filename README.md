@@ -4,6 +4,8 @@ When dealing with massive amounts of text—like multiple days of raw transcript
 
 This repo outlines a multi-agent architectural pattern to handle bulk text efficiently, e.g. using an in-house Copilot. It scales to massive datasets without losing context or accuracy.
 
+**Use cases:** Q&A Agent, backlog creation, etc.
+
 ## The Architecture
 
 Instead of feeding all raw files to a single agent, we split the workload:
