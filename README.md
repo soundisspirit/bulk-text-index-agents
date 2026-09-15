@@ -1,42 +1,18 @@
 # Bulk Text Index Agents
 
-When dealing with massive amounts of text—like multiple days of raw transcripts, huge codebases, or years of logs—querying an LLM directly is a nightmare. The context window gets bloated, latency goes through the roof, and the model starts hallucinating or losing the thread.
+A multi-agent pattern to handle massive text collections (multi-day transcripts, logs, interview dumps, documentation) efficiently without bloating the context window or losing accuracy.
 
-This repo outlines a multi-agent architectural pattern to handle bulk text efficiently, e.g. using an in-house Copilot. It scales to massive datasets without losing context or accuracy.
+**Use cases:** Q&A agents, backlog creation, timeline reconstruction, report generation.
 
-**Use cases:** Q&A Agent, backlog creation, etc.
 
-## The Architecture
 
-Instead of feeding all raw files to a single agent, we split the workload:
+## How to Use These Prompts
 
-1. **Indexer Agent:** Runs independently for *each* file, extracting a local index.
-2. **Consolidator Agent:** Takes all local indexes and merges them into a single Master Index.
-3. **Use Case Agent (e.g. Q&A):** Uses the Master Index to quickly locate the exact raw files needed, then reads only those files to complete the task.
+1. **Step 1 — Index individual files**  
+   Run [Agent 1 (Indexer)](prompts/agent-1-indexer.md) separately on each raw text file. It extracts verbatim anchor phrases, decisions, and local topic segments without summarizing the whole file.
 
-```text
- ┌──────────────────────────────────┐
- │         Raw text files           │
- └──────────────┬────────────┬──────┘
-                │            │
-                │            │ Pass raw text files
-                ▼            │
- ┌────────────────────────┐  │
- │ Agent 1 Indexer        │  │
- │ (Run for each file)    │  │
- └──────────────┬─────────┘  │
-                │            │
-                │ Pass index │
-                │ files      │
-                ▼            │
- ┌────────────────────────┐  │
- │ Agent 2 Consolidator   │  │
- └──────────────┬─────────┘  │
-                │            │
-                │ Pass master│
-                │ index file │
-                ▼            ▼
- ┌──────────────────────────────────┐
- │ Agent 3 (Your use case)          │
- └──────────────────────────────────┘
-```
+2. **Step 2 — Consolidate into a Master Index**  
+   Feed all generated index files into [Agent 2 (Consolidator)](prompts/agent-2-consolidator.md). It generates a unified Topic Map, a Reversal Log (tracking position changes over time), and an Open Items list.
+
+3. **Step 3 — Execute your use case**  
+   Feed the Master Index and the raw files to [Agent 3 (Query Agent)](prompts/agent-3-query.md) (or customize it for backlog extraction). The agent uses the index as a map to locate exact verbatim anchors in the raw files and produces fast, grounded answers with zero hallucinations.
