@@ -2,7 +2,7 @@
 
 When dealing with massive amounts of text—like multiple days of raw transcripts, huge codebases, or years of logs—querying an LLM directly is a nightmare. The context window gets bloated, latency goes through the roof, and the model starts hallucinating or losing the thread.
 
-This repo outlines a multi-agent architectural pattern to handle bulk text efficiently using an in-house Copilot. It scales to massive datasets without losing context or accuracy.
+This repo outlines a multi-agent architectural pattern to handle bulk text efficiently, e.g. using an in-house Copilot. It scales to massive datasets without losing context or accuracy.
 
 ## The Architecture
 
