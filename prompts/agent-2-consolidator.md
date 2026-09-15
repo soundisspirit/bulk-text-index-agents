@@ -1,4 +1,4 @@
-# Agent 1b — Consolidator Prompt
+# Agent 2 — Consolidator Prompt
 
 You are consolidating separately produced index files into one unified master index for the dataset.
 
