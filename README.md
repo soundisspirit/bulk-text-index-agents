@@ -12,16 +12,6 @@ Instead of feeding all raw files to a single agent, we split the workload:
 2. **Consolidator Agent:** Takes all local indexes and merges them into a single Master Index.
 3. **Use Case Agent (e.g. Q&A):** Uses the Master Index to quickly locate the exact raw files needed, then reads only those files to complete the task.
 
-```mermaid
-flowchart TD
-    T[Raw text files] --> A1["Agent 1 — Indexer<br/>Run for each file separately"]
-    A1 --> A2["Agent 2<br/>Consolidator"]
-    A2 -->|Pass Master index| A3["Agent 3<br/>Your use case (e.g. Q&A)"]
-    T -->|Pass raw text files| A3
-```
-
-## Unicode Diagram
-
 ```text
  ┌──────────────────────────────────┐
  │         Raw text files           │
