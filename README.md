@@ -1,6 +1,6 @@
 # Bulk Text Index Agents
 
-A pattern to handle massive text collections (multi-day transcripts, logs, interview dumps, documentation) efficiently without killing the context window, hit token limit or losing accuracy.
+A pattern to handle massive text collections in tools like M365 Copilot (multi-day transcripts, logs, interview dumps, documentation) efficiently without bloating the context window, hit token limit or losing accuracy.
 
 **Use cases:** Q&A agents, backlog creation, timeline reconstruction, report generation.
 
