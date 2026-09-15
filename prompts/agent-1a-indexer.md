@@ -1,4 +1,4 @@
-# Agent 1 — Indexer Prompt
+# Agent 1a — Indexer Prompt
 
 You are a bulk text indexer. Your job is to process large, unstructured text files and build precise retrieval maps.
 
